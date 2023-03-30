@@ -7,15 +7,33 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> 
     <link rel="stylesheet" href="style.css">
     <!-- reset css -->
+    <script defer src="./src/modal.js"></script>
     <title>작심 하루</title>
 </head>
 <body>
+    <div class="modalcontainer">
+        <div class="modal">
+            <div class="closebtn">x</div>
+            <h2>작심 추가</h2>
+            <textarea name="add" id="modaltxt" cols="20" rows="1" placeholder="오늘의 작심은..."></textarea>
+            <div class="statecontainer">
+                <input type="radio" name="state" id="sunny" checked>
+                <label for="sunny">햇빛보기☀️</label>
+                <input type="radio" name="state" id="water">
+                <label for="water">물주기💦</label>
+                <input type="radio" name="state" id="vita">
+                <label for="vita">영양제💊</label>
+                <label class="oftenTaskCheck"><input type="checkbox" name="often" id="oftenTaskCheck">자주쓰는 작심추가</label>
+            </div>
+            <button class="addbtn">추가</button>
+        </div>
+    </div>
     <div class="header">
         <h1>작심 하루</h1>
         <div class="login"></div>
     </div>
     <div class="addTask">
-        <button id="addTaskbtn">작심하루 추가</button>
+        <button class="addTaskbtn">작심하루 추가</button>
     </div>
     <div class="todayTask">
         <h2>작심 Today</h2>

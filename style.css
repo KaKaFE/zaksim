@@ -55,7 +55,7 @@ h1{
     grid-column: 2 / 4;
     grid-row: 2 / 3;
 }
-#addTaskbtn {
+.addTaskbtn {
     font-family: 'Daheng';
     font-size: 20px;
     width: 100%;
@@ -63,6 +63,88 @@ h1{
     border: solid white 0px;
     background-color: #00ffd140;
     border-radius: 20px;
+    cursor: pointer;
+}
+.addTaskbtnClick{
+    background-color: #CBF5EB;
+}
+
+/* modal css */
+.modalcontainer{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    text-align: center;
+}
+.modal{
+    display: grid;
+    grid-template-rows: auto;
+    border: #00ffd0a3 solid 5px;
+    border-radius: 20px;
+    background-color: white;
+    width: 300px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+.modal > h2 {
+    background-color: #00ffd140;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 18px 18px 0 0;
+    text-align: center;
+}
+#modaltxt:focus{
+    outline: none;
+}
+#modaltxt::placeholder{
+    color: rgb(195, 197, 199);
+}
+#modaltxt{
+    resize: none;
+    border: #00ffd140 solid 5px;
+    border-radius: 10px;
+    height: 30px;
+    margin: 10px;
+    padding: 20px 10px 0 10px;
+}
+.oftenTaskCheck{
+    display: inline-block;
+    margin: 15px;
+}
+.addbtn{
+    font-family: 'Daheng';
+    font-size: 20px;
+    height: 30px;
+    border: #00ffd140 solid 1px;
+    background-color: #00ffd140;
+    border-radius: 0 0 10px 10px;
+}
+.statecontainer{
+    height: 100px;
+}
+.statecontainer input[type=radio]{
+    display: none;
+}
+.statecontainer label{
+    display: inline-block;
+    border: solid #00ffd140 3px;
+    background-color: #00ffd140;
+    border-radius: 15px;
+    padding: 5px;
+}
+.statecontainer input[type=radio]:checked+label{
+    background-color: #2e928070;
+}
+.closebtn{
+    position: absolute;
+    left: 105%;
+    top: -15%;
+    font-size: 30px;
+    font-family: auto;
     cursor: pointer;
 }
 /* 자주쓰는 작심 css */
