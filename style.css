@@ -58,6 +58,18 @@ h1{
     grid-row: 9 / 11;
     border: 2px solid #00ffd140;
     border-radius: 20px;
+    padding: 10px;
+}
+div.wiseTalk h2{
+    background-color: #00ffd140;
+    display: inline-block;
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+}
+.nowText{
+    display: inline-block;
+    font-size: 20px;
 }
 
 /* 오늘의 상태부분 css */
