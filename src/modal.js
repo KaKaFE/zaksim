@@ -8,3 +8,5 @@ modalbtn.addEventListener('click', () => {
 modalClose.addEventListener('click', ()=> {
     modalContainer.style.display = 'none';
 })
+
+let test = ''
