@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"> 
     <link rel="stylesheet" href="style.css">
     <!-- reset css -->
-    <script defer src="./src/modal.js"></script>
+    
     <title>작심 하루</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
             <h2>작심 추가</h2>
             <textarea name="add" id="modaltxt" cols="20" rows="1" placeholder="오늘의 작심은..."></textarea>
             <div class="statecontainer">
-                <input type="radio" name="state" id="sunny" checked>
+                <input type="radio" name="state" id="sunny">
                 <label for="sunny">햇빛보기☀️</label>
                 <input type="radio" name="state" id="water">
                 <label for="water">물주기💦</label>
@@ -59,10 +59,29 @@
             <h2>오늘의 일기</h2>
             <div class="diaryTxt">
                 <input type="text" name="diarytxt" id="diaryTxt">
+                <!-- <textarea name="diarytxt" id="diaryTxt"></textarea> -->
             </div>
         </div>
     </div>
     <div class="plant"></div>
     <div class="footer"></div>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script type="module">
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+          apiKey: "AIzaSyBJhBwCfH8_Z7Xj9EeFP35EYBH0RI_RbTM",
+          authDomain: "golden-goose-2408a.firebaseapp.com",
+          projectId: "golden-goose-2408a",
+          storageBucket: "golden-goose-2408a.appspot.com",
+          messagingSenderId: "778473056157",
+          appId: "1:778473056157:web:8874a95bafd1b8cddef174"
+        };
+      
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+      </script>
+    <script defer src="./src/modal.js"></script>
+    <script defer src="./src/taskDB.js"></script>
 </body>
 </html>
