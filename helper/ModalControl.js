@@ -1,5 +1,4 @@
-// 자주 쓰는 작심 추가 모달 토글 기능
-export class Modal {
+class Modal {
   constructor() {
     this.modalEl = document.querySelector(".jaksim_today_modal");
     this.backdropEl = document.querySelector(".backdrop");
@@ -16,3 +15,10 @@ export class Modal {
   }
 }
 
+export const showModal = () => {
+  new Modal().show();
+};
+
+export const hideModal = () => {
+  new Modal().hide();
+};
