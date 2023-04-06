@@ -1,0 +1,92 @@
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
+
+#add_diary_btn {
+  background-color: #00ffd140;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+#add_diary_btn:hover {
+  background-color: #00cca7;
+}
+
+.diary_modal {
+  font-family: inherit;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 370px;
+  background-color: white;
+  border-radius: 15px;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  z-index: 99;
+}
+
+.diary_modal_title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.diary_modal_title > h2 {
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  color: #00cca7;
+}
+
+.diary_modal_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#diary_modal_input {
+  width: 400px;
+  height: 200px;
+  box-sizing: border-box;
+  border: 2px solid #8e8e8e;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline-color: #00ffd140;
+}
+
+.diary_modal_submit {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.diary_modal_submit > button {
+  width: 80px;
+  height: 35px;
+  background-color: #00ffd140;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  font-family: inherit;
+}
+
+.diary_modal_submit > button:hover {
+  background-color: #00cca7;
+  cursor: pointer;
+}

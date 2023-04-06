@@ -11,10 +11,13 @@
     <link rel="stylesheet" href="./style/reset.css" />
     <link rel="stylesheet" href="./style/style.css" />
     <link rel="stylesheet" href="./style/frequent.css" />
+    <link rel="stylesheet" href="./style/modal.css" />
+    <script type="module" src="./src/diary/diaryModal.js" defer></script>
     <script src="./src/wisetalk/wisetalk.js" defer></script>
     <title>작심 하루</title>
   </head>
   <body>
+    <!-- 작심 추가 modal -->
     <div class="modalcontainer">
       <div class="modal">
         <div class="closebtn">x</div>
@@ -42,6 +45,21 @@
       </div>
     </div>
 
+    <!-- 오늘의 일기 modal -->
+    <div class="backdrop">
+      <div class="diary_modal">
+        <form class="diary_model_form">
+          <div class="diary_modal_title">
+            <h2>오늘의 일기</h2>
+          </div>
+          <textarea id="diary_modal_input" autofocus></textarea>
+          <div class="diary_modal_submit">
+            <button id="diary_submit">추가</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <div class="header">
       <h1>작심 하루</h1>
       <div class="login"></div>
@@ -55,6 +73,7 @@
       <h2>작심 Today</h2>
     </div>
 
+    <!-- 자주 쓰는 작심 -->
     <div class="oftenTask">
       <section class="frequent_jaksim">
         <div class="frequent_header">
@@ -69,6 +88,7 @@
       </section>
     </div>
 
+    <!-- 명언 -->
     <div class="wiseTalk">
       <div class="nowText">
         <h2>오늘의 명언</h2>
@@ -79,6 +99,7 @@
       </div>
     </div>
 
+    <!-- 오늘의 일기 -->
     <div class="todayState">
       <div class="todayMood">
         <h2>오늘의 기분</h2>
@@ -91,8 +112,9 @@
       <div class="diary">
         <h2>오늘의 일기</h2>
         <div class="diaryTxt">
-          <input type="text" name="diarytxt" id="diaryTxt" />
+          <div id="diary_txt"></div>
         </div>
+        <button id="add_diary_btn">추가</button>
       </div>
     </div>
 
