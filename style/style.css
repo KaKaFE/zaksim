@@ -240,11 +240,16 @@ div.todayState h2 {
   height: 80%;
   padding: 10px;
 }
-#diaryTxt {
+#diary_txt {
   height: 100%;
-  width: 100%;
   border-radius: 10px;
   border: 1px solid #00ffd140;
+  overflow: scroll;
+}
+
+/* 일기 표시 영역의 스크롤바 숨김 */
+#diary_txt::-webkit-scrollbar {
+  display: none;
 }
 
 /* 식물 부분 css */
