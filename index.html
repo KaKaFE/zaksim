@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="kr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
+    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="./style/Modal/modal.css" />
+    <link rel="stylesheet" href="./style/FrequentJaksim/FrequentJaksim.css" />
+    <link rel="stylesheet" href="./style/JaksimToday/JaksimToday.css" />
+    <link rel="stylesheet" href="./style/EvaluationToday/EvaluationToday.css" />
+    <link rel="stylesheet" href="./style/WiseTalk/wisetalkToday.css" />
+    <link rel="stylesheet" href="./style/Pot/pot.css" />
+    <!-- <link rel="stylesheet" href="./style/jaksimToday.css" /> -->
+    <script type="module" src="./src/index.js"></script>
+    <script type="module" src="./src/JaksimToday/JaksimToday.js"></script>
+    <script type="module" src="./src/Frequent/FrequentJaksim.js"></script>
+    <script
+      type="module"
+      src="./src/JaksimInput/JaksimInputModal.js"
+      defer
+    ></script>
+    <script src="./src/WiseTalk/wiseTalkToday.js"></script>
+    <script
+      type="module"
+      src="./src/EvaluationToday/EvaluationToday.js"
+    ></script>
+    <script type="module" src="./src/Pot/pot.js"></script>
+
+    <!-- reset css -->
+    <title>작심 하루</title>
+  </head>
+  <body>
+    <div class="backdrop" style="display: none"></div>
+    <div class="today_modal" style="display: none">
+      <div class="today_modal_close_bth">x</div>
+      <form action="" class="today_modal_form">
+        <div class="today_modal_title">
+          <h3>작심 추가하기</h3>
+        </div>
+        <div class="today_modal_color_check" value="water">
+          <div id="water" class="color_check_btn clicked">물주기💦</div>
+          <div id="sun" class="color_check_btn">햇빛☀️</div>
+          <div id="pill" class="color_check_btn">영양제💊</div>
+        </div>
+        <div class="today_modal_input_div">
+          <input
+            type="text"
+            class="today_modal_input"
+            placeholder="오늘의 작심을 입력해주세요."
+          />
+        </div>
+        <label class="frequent_add_check">
+          <input type="checkbox" id="frequent_add_check" />
+          <label for="frequent_add_check"></label>
+          <span>자주쓰는 작심으로도 추가</span>
+        </label>
+        <div class="today_modal_submit_btn">
+          <button>추가</button>
+        </div>
+      </form>
+    </div>
+    <!-- 모달창 영역 -->
+    <div class="header">
+      <button class="add_today_btn">작심 추가</button>
+      <div class="title"><h1>작심 하루</h1></div>
+    </div>
+    <div class="todayTask">
+      <div class="today_title">
+        <h2>오늘의 작심</h2>
+      </div>
+      <ul class="today_ul">
+        <!-- <li id="${data.id}" class="today_li ${data.isDone ? "done" : ""}">
+          <div class="today_click_area">
+             <div class="today_checkbox ${data.feature}">
+                ${data.isDone ? "ㅇ" : ""}
+             </div>
+             <span>${data.jaksim}</span>
+          </div>
+          <div class="delete_today_btn">
+             <img src="../public/cross.png">
+          </div>
+       </li> -->
+      </ul>
+    </div>
+    <div class="oftenTask">
+      <section class="frequent_jaksim">
+        <div class="frequent_header">
+          <h2 class="frequent_title">자주 쓰는 작심</h2>
+        </div>
+        <ul class="frequent_ul"></ul>
+      </section>
+    </div>
+    <div class="wiseTalk">
+      <div class="nowText">
+        <h2>오늘의 명언</h2>
+      </div>
+      <h3 id="text" style="text-align: center">
+        성공이란 넘어지는 횟수보다 한 번 더 일어서는 것이다.
+      </h3>
+    </div>
+    <div class="todayState">
+      <div class="todayMood">
+        <h2>오늘의 기분</h2>
+        <div class="emoji_list">
+          <span class="selected_emoji">😁</span><span class="emoji">😐</span
+          ><span class="emoji">🙁</span><span class="emoji">😡</span
+          ><span class="emoji">🤔</span><span class="emoji">😭</span>
+        </div>
+      </div>
+      <div class="todayScore">
+        <h2>오늘의 점수</h2>
+        <div class="score">85점</div>
+      </div>
+      <div class="diary">
+        <h2>오늘의 일기</h2>
+        <div class="diary_content">
+          <p class="diary_paragraph">클릭해서 작성하기.</p>
+        </div>
+      </div>
+    </div>
+    <div class="plant">
+      <div class="feature_processivity">
+        <div class="feature_processivity_water">
+          💦<span class="water_processivity"></span>
+        </div>
+        <div class="feature_processivity_sun">
+          ☀️<span class="sun_processivity"></span>
+        </div>
+        <div class="feature_processivity_pill">
+          💊<span class="pill_processivity"></span>
+        </div>
+      </div>
+      <div class="pot_content"></div>
+    </div>
+    <div class="footer"></div>
+  </body>
+</html>
