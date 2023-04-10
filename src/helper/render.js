@@ -18,7 +18,7 @@ export const renderFrequentList = async () => {
               <span>${data.jaksim}</span>
           </div>
           <div class="delete_frequent_btn">
-              <img src="../public/cross.png">
+              X
           </div>
        </li>`
     )
@@ -50,7 +50,7 @@ export const renderTodayList = async () => {
              <span>${data.jaksim}</span>
           </div>
           <div class="delete_today_btn">
-             <img src="../public/cross.png">
+             X
           </div>
        </li>`
     );
