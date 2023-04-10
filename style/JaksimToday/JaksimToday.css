@@ -8,6 +8,13 @@
 
 .today_ul {
   margin: 10px;
+  height: 370px;
+  overflow-y: scroll;
+}
+
+/* 스크롤 숨기기 */
+.today_ul::-webkit-scrollbar {
+  display: none;
 }
 
 .today_li {

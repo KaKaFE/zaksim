@@ -16,10 +16,16 @@
 
 .frequent_ul {
   width: 100%;
+  height: 180px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   align-items: center;
+  overflow-y: scroll;
+}
+
+.frequent_ul::-webkit-scrollbar {
+  display: none;
 }
 
 .frequent_li {
