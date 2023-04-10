@@ -1,0 +1,72 @@
+/* 자주 쓰는 작심 틀 */
+.frequent_jaksim {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.frequent_header {
+  width: 100%;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.frequent_ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+}
+
+.frequent_li {
+  display: flex;
+  height: 36px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  border-radius: 8px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.frequent_li:hover {
+  filter: contrast(0.9);
+  cursor: pointer;
+}
+
+.frequent_click_area {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-left: 14px;
+}
+
+.frequent_click_area > span {
+  pointer-events: none;
+  margin-bottom: 3px;
+}
+
+.delete_frequent_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  filter: invert(25%) sepia(49%) saturate(285%) hue-rotate(131deg)
+    brightness(97%) contrast(15%);
+}
+
+.delete_frequent_btn > img {
+  pointer-events: none;
+  width: 8px;
+  height: 8px;
+}
+
+.delete_frequent_btn:hover > img {
+  transform: scale(1.3);
+}
