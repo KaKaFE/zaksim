@@ -9,7 +9,10 @@ function emojiClickHandler(e) {
 }
 
 function diaryParagrapthClickHandler(e) {
-  const content = e.target.innerText;
+  let content = e.target.innerText;
+  if (content === "클릭해서 작성하기") {
+    content = "";
+  }
   document.querySelector(
     ".diary_content"
   ).innerHTML = `<textarea class="diary_textarea" >${content}</textarea>`;

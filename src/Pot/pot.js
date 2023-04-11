@@ -17,6 +17,8 @@ export const renderPot = async () => {
   const completedJaksimByFeature = (feature) =>
     completedJaksimList.filter((jaksim) => jaksim.feature === feature);
 
+  // console.log(completedJaksimList);
+
   const completedWaterNumber = completedJaksimByFeature("water").length;
   const completedSunNumber = completedJaksimByFeature("sun").length;
   const completedPillNumber = completedJaksimByFeature("pill").length;
