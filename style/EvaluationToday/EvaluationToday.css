@@ -3,15 +3,21 @@ div.todayState h2 {
   display: inline-block;
   border-radius: 10px;
   text-align: center;
-  padding: 5px;
+  /* padding: 5px; */
+  padding: 10px 5px;
 }
+
+.today_mood_container {
+  display: flex;
+  justify-content: space-around;
+}
+
 .todayMood > h2,
 .todayScore > h2 {
   width: 100px;
 }
 .todayMood {
   font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .emoji_list {
@@ -35,8 +41,8 @@ div.todayState h2 {
   display: flex;
   align-items: center;
   font-size: 20px;
-  margin-bottom: 10px;
 }
+
 .score {
   margin-left: 20px;
 }
@@ -46,6 +52,11 @@ div.todayState h2 {
   flex-direction: column;
   height: 100%;
 }
+
+.diary > h2 {
+  font-size: 24px;
+}
+
 .diary_content {
   height: 100%;
   padding: 8px;
@@ -53,7 +64,7 @@ div.todayState h2 {
 
 .diary_textarea {
   width: 100%;
-  height: 100%;
+  height: 230px;
   resize: none;
   border: none;
   font-family: "Daheng";
@@ -66,12 +77,25 @@ div.todayState h2 {
 
 .diary_paragraph {
   width: 100%;
-  height: 100%;
+  height: 230px;
   font-size: 20px;
+  white-space: pre-line;
+  word-wrap: break-word;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .diary_paragraph:hover {
   cursor: pointer;
+}
+
+.diary_paragraph::-webkit-scrollbar {
+  width: 10px;
+}
+
+.diary_paragraph::-webkit-scrollbar-thumb {
+  background-color: hsl(166, 33%, 81%);
+  border-radius: 10px;
 }
 
 #diaryTxt {

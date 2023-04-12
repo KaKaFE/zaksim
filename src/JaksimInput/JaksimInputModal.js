@@ -84,6 +84,12 @@ const modalSubmitHandler = async (e) => {
     return;
   }
 
+  // 물주기, 햇빛, 영양제 선택 검사
+  if (jaksimfeatureValue === "") {
+    alert("물주기, 햇빛, 영양제 중 하나를 선택해주세요.");
+    return;
+  }
+
   // 자주 쓰는 작심에도 추가하는 경우
   // 자주 쓰는 작심에 동일한 문자열이 있는지 검사
   const frequentList = await getFrequentJaksim();

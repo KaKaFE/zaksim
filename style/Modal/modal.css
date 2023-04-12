@@ -27,6 +27,9 @@
   border-radius: 25px;
   text-align: center;
   color: #39d1ad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .today_modal_close_bth:hover {
@@ -133,6 +136,10 @@
   align-items: center;
   text-align: center;
   cursor: pointer;
+}
+
+.frequent_add_check > span {
+  margin-top: 4px;
 }
 
 input[id="frequent_add_check"] + label {

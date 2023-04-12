@@ -4,6 +4,7 @@ import {
   deleteJaksimToday,
 } from "../helper/JaksimTodayApi.js";
 import { renderPot } from "../Pot/pot.js";
+import { scoreCalc } from "../EvaluationToday/ScoreCalc.js";
 
 /** 오늘의 작심 li 클릭시 done클래스를 토글하여 체크 표시, 텍스트에 가로줄 생성 하는 함수**/
 async function jaksimTodayClickHandler(e) {
@@ -21,6 +22,7 @@ async function jaksimTodayClickHandler(e) {
 
     renderJaksimTodayList();
     renderPot();
+    scoreCalc();
   }
 }
 
@@ -35,6 +37,18 @@ async function jaksimTodayCrossClickHandler(e) {
       renderPot();
     } else {
       return;
+    }
+  }
+}
+
+export function checkScrollActive() {
+  const ul = document.getElementsByClassName("today_ul")[0];
+
+  if (ul.scrollHeight > ul.clientHeight) {
+    const li = document.getElementsByClassName("today_li");
+
+    for (let i = 0; i < li.length; i++) {
+      li[i].style.width = "95%";
     }
   }
 }

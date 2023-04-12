@@ -1,5 +1,6 @@
 import { getFrequentJaksim } from "./FrequentJaksimApi.js";
 import { getJaksimTodayList } from "./JaksimTodayApi.js";
+import { checkScrollActive } from "../JaksimToday/JaksimToday.js";
 
 /**  자주쓰는 작심 리스트 생성 함수  **/
 export const renderFrequentJaksimList = async () => {
@@ -45,7 +46,11 @@ export const renderJaksimTodayList = async () => {
       `<li id="${data.id}" class="today_li ${data.isDone ? "done" : ""}">
           <div class="today_click_area">
              <div class="today_checkbox ${data.feature}">
-                ${data.isDone ? "ㅇ" : ""}
+                ${
+                  data.isDone
+                    ? '<img src="../../public/check.png" alt="check" />'
+                    : ""
+                }                
              </div>
              <span class="today_span">${data.jaksim}</span>
           </div>
@@ -58,4 +63,6 @@ export const renderJaksimTodayList = async () => {
 
   jaksimTodayUl.innerHTML = jaksimTodayList.join("");
   // 만들어진 HTML 엘리먼트를 jaksimToday ul에 넣음
+
+  checkScrollActive();
 };

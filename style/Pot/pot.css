@@ -1,9 +1,22 @@
+.pot_content {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.pot_content > img {
+  height: 250px;
+}
+
 .feature_processivity {
   position: relative;
+  display: inline;
   top: 0px;
   right: 0px;
-  width: 64px;
+  width: 25%;
   font-size: 22px;
+  align-items: flex-start;
 }
 
 .feature_processivity_water {
@@ -30,17 +43,35 @@
   padding-bottom: 6px;
 }
 
-.plant {
+.pot_content {
   position: relative;
 }
 
-.pot_content {
-  position: absolute;
-  top: 90px;
-  left: 50px;
+.pot_content > img {
+  height: 300px;
 }
 
-.pot {
-  width: 200px;
-  height: auto;
+.level_plant {
+  position: absolute;
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transition: all 1s;
+}
+
+.hide {
+  opacity: 0;
+  transition: 1s;
+}
+
+@keyframes complete {
+  from {
+    box-shadow: none;
+  }
+
+  to {
+    box-shadow: 0px 0px 20px 8px #5ae4fc;
+  }
 }

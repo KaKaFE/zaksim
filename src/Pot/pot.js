@@ -1,119 +1,92 @@
 import { getJaksimTodayList } from "../helper/JaksimTodayApi.js";
 
-// 총 % 합
-let total = 0;
-
 export const renderPot = async () => {
+  const potContentEl = document.querySelector(".pot_content");
   const waterProcessivity = document.querySelector(".water_processivity");
   const sunProcessivity = document.querySelector(".sun_processivity");
   const pillProcessivity = document.querySelector(".pill_processivity");
 
-  const sunGoalNumber = 3;
-  const waterGoalNumber = 3;
-  const pillGoalNumber = 3;
+  // 각 특징별 작심 목표 달성치
+  let sunGoalNumber = 3;
+  let waterGoalNumber = 3;
+  let pillGoalNumber = 3;
 
+  // 각 특징별 작심 달성률 (초기값 0%)
+  let completedWaterRate = 0;
+  let completedSunRate = 0;
+  let completedPillRate = 0;
+
+  // 완료된 작심들만 가져와서 completedJaksimList에 저장
   const jaksimTodayList = await getJaksimTodayList();
   const completedJaksimList = jaksimTodayList.filter(
     (jaksim) => jaksim.isDone === true
   );
 
+  // 완료된 작심들을 특징별로 각각 나눠서 갯수 저장
   const completedJaksimByFeature = (feature) =>
     completedJaksimList.filter((jaksim) => jaksim.feature === feature);
-
   const completedWaterNumber = completedJaksimByFeature("water").length;
   const completedSunNumber = completedJaksimByFeature("sun").length;
   const completedPillNumber = completedJaksimByFeature("pill").length;
 
-  waterProcessivity.innerText =
-    Math.floor((completedWaterNumber / waterGoalNumber) * 100) + "%";
-
-  sunProcessivity.innerText =
-    Math.floor((completedSunNumber / sunGoalNumber) * 100) + "%";
-
-  pillProcessivity.innerText =
-    Math.floor((completedPillNumber / pillGoalNumber) * 100) + "%";
-
-  total =
-    parseInt(waterProcessivity.innerText) +
-    parseInt(sunProcessivity.innerText) +
-    parseInt(pillProcessivity.innerText);
-
-  growPlant();
-};
-
-const div = document.getElementsByClassName("pot_content")[0];
-
-// 총 6단계에 걸쳐 plant 표시
-// %의 총합 : 33, 66, 100, 166, 233, 300
-// 개수 총합 : 1, 2, 3, 5, 7, 9
-const growPlant = () => {
-  // 식물 png 파일 출처
-  // https://kor.pngtree.com/freepng/cartoon-strawberry-plant-growth-process-decorative-pattern_4029768.html
-
-  if (total === 33) {
-    resetImgTag();
-    makeImgTag(1);
+  // 각 특징별 작심 달성률 계산식
+  if (completedWaterNumber > waterGoalNumber) {
+    completedWaterRate = 100;
+  } else {
+    completedWaterRate = Math.floor(
+      (completedWaterNumber / waterGoalNumber) * 100
+    );
   }
 
-  if (total === 66) {
-    resetImgTag();
-    makeImgTag(2);
+  if (completedSunNumber > sunGoalNumber) {
+    completedSunRate = 100;
+  } else {
+    completedSunRate = Math.floor((completedSunNumber / sunGoalNumber) * 100);
   }
 
-  // 100이 아니고 99인 이유?
-  // 물만 3번 달성한 경우 100이 되지만, 물 2번 영양 1번의 경우 각각 66, 33이므로 100이 되지 않게 된다.
-  // 이후로도 마찬가지의 이유
-  if (total >= 99 && total < 165) {
-    resetImgTag();
-    makeImgTag(3);
+  if (completedPillNumber > pillGoalNumber) {
+    completedPillRate = 100;
+  } else {
+    completedPillRate = Math.floor(
+      (completedPillNumber / pillGoalNumber) * 100
+    );
   }
 
-  // 100,66,0 일 수도 있지만, 66,66,33 일 수도 있음. 따라서, 후자의 경우까지 포함되도록 범위 설정
-  if (total >= 165 && total < 232) {
-    resetImgTag();
-    makeImgTag(4);
+  const completedAllJaksimRate =
+    completedWaterRate + completedSunRate + completedPillRate;
+
+  function toggleClass(number) {
+    for (let i = 0; i < 6; i++) {
+      potContentEl.children[i].classList.add("hide");
+    }
+    potContentEl.children[number].classList.remove("hide");
+    potContentEl.children[number].classList.add("show");
   }
 
-  // 100,100,33일 수도 있지만, 100,66,66일 수도 있음.
-  if (total >= 232 && total < 300) {
-    resetImgTag();
-    makeImgTag(5);
-    div.style.top = "80px";
-  }
-
-  if (total >= 300) {
-    resetImgTag();
-    makeImgTag(6);
-    div.style.top = "70px";
+  if (completedAllJaksimRate < 60) {
+    toggleClass(0);
+  } else if (completedAllJaksimRate < 120) {
+    toggleClass(1);
+  } else if (completedAllJaksimRate < 180) {
+    toggleClass(2);
+  } else if (completedAllJaksimRate < 240) {
+    toggleClass(3);
+  } else if (completedAllJaksimRate < 300) {
+    toggleClass(4);
+  } else if (completedAllJaksimRate === 300) {
+    toggleClass(5);
     congratulation();
   }
-};
 
-// img 태그를 리셋하는 함수
-// 이전 데이터로 인한 plant 이미지를 제거하기 위함.
-const resetImgTag = () => {
-  // 전환 효과
-  const img = document.getElementsByClassName("pot")[0];
-
-  if (img === undefined) {
-    return;
-  }
-
-  div.replaceChildren();
-};
-
-// total에 따른 plant 이미지를 보여주기 위한 함수
-const makeImgTag = (level) => {
-  const img = document.createElement("img");
-  img.src = `./public/img/plant_level_${level}.png`;
-  img.alt = `level ${level} plant`;
-  img.classList.add("pot");
-
-  div.appendChild(img);
+  // 각 특징별 작심 달성률 렌더링
+  waterProcessivity.innerText = `${completedWaterRate}%`;
+  sunProcessivity.innerText = `${completedSunRate}%`;
+  pillProcessivity.innerText = `${completedPillRate}%`;
 };
 
 // 300% 달성 시 이벤트
 const congratulation = () => {
   const plant = document.getElementsByClassName("plant")[0];
-  plant.style.boxShadow = "0px 0px 20px 8px #5ae4fc";
+
+  plant.style.animation = "complete 0.7s ease infinite alternate";
 };
