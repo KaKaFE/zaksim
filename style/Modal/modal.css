@@ -81,14 +81,24 @@
 }
 
 .clicked {
-  background-color: #39d1ad;
   color: white;
-  border: 2px solid #39d1ad;
   cursor: default;
 }
 
+#water:hover {
+  border: 2px solid #adf2d9;
+}
+
+#sun:hover {
+  border: 2px solid #f2dfac;
+}
+
+#pill:hover {
+  border: 2px solid #f2d8e8;
+}
+
 .today_modal_input_div {
-  width: 240px;
+  width: 300px;
   padding: 3px 8px;
   box-sizing: border-box;
   border: 2px solid rgb(209, 209, 209);
@@ -109,7 +119,7 @@
 }
 
 .today_modal_input {
-  width: 220px;
+  width: 280px;
   height: 32px;
   font-size: 16px;
   border: none;

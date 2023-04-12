@@ -47,7 +47,7 @@ export const renderJaksimTodayList = async () => {
              <div class="today_checkbox ${data.feature}">
                 ${data.isDone ? "ㅇ" : ""}
              </div>
-             <span>${data.jaksim}</span>
+             <span class="today_span">${data.jaksim}</span>
           </div>
           <div class="delete_today_btn">
              <img src="../public/cross.png">

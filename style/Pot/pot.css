@@ -29,3 +29,18 @@
   text-align: end;
   padding-bottom: 6px;
 }
+
+.plant {
+  position: relative;
+}
+
+.pot_content {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+}
+
+.pot {
+  width: 200px;
+  height: auto;
+}

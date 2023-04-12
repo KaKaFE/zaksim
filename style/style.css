@@ -16,6 +16,10 @@ body {
   color: #2f4f4f;
 }
 
+input {
+  all: unset;
+}
+
 /* 헤더 부분 css */
 .header {
   grid-column: 1 / 10;

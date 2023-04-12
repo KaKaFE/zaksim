@@ -38,7 +38,6 @@ div.todayState h2 {
   margin-bottom: 10px;
 }
 .score {
-  display: inline-block;
   margin-left: 20px;
 }
 .diary {
@@ -80,4 +79,10 @@ div.todayState h2 {
   width: 100%;
   border-radius: 10px;
   border: 1px solid #00ffd140;
+}
+
+.score_span {
+  margin-left: 20px;
+  cursor: pointer;
+  width: 70%;
 }

@@ -5,12 +5,44 @@ import {
 } from "../helper/JaksimRender.js";
 import { saveJaksimToday } from "../helper/JaksimTodayApi.js";
 import { hideModal } from "../helper/ModalControl.js";
+import { getFrequentJaksim } from "../helper/FrequentJaksimApi.js";
 
 const waterfeatureBtn = document.querySelector("#water");
 const sunfeatureBtn = document.querySelector("#sun");
 const pillfeatureBtn = document.querySelector("#pill");
 const featureInputEl = document.querySelector(".today_modal_color_check");
 const modalSubmitBtn = document.querySelector(".today_modal_submit_btn");
+
+// 물주기, 햇빛, 영양제 클릭에 따라 스타일을 변경하는 함수
+const changeButtonStyle = (feature) => {
+  if (feature === "water") {
+    // background-color
+    waterfeatureBtn.style.backgroundColor = "#adf2d9";
+    sunfeatureBtn.style.backgroundColor = "";
+    pillfeatureBtn.style.backgroundColor = "";
+
+    // border
+    waterfeatureBtn.style.border = "2px solid #adf2d9";
+    sunfeatureBtn.style.border = "";
+    pillfeatureBtn.style.border = "";
+  } else if (feature === "sun") {
+    waterfeatureBtn.style.backgroundColor = "";
+    sunfeatureBtn.style.backgroundColor = "#f2dfac";
+    pillfeatureBtn.style.backgroundColor = "";
+
+    waterfeatureBtn.style.border = "";
+    sunfeatureBtn.style.border = "2px solid #f2dfac";
+    pillfeatureBtn.style.border = "";
+  } else if (feature === "pill") {
+    waterfeatureBtn.style.backgroundColor = "";
+    sunfeatureBtn.style.backgroundColor = "";
+    pillfeatureBtn.style.backgroundColor = "#f2d8e8";
+
+    waterfeatureBtn.style.border = "";
+    sunfeatureBtn.style.border = "";
+    pillfeatureBtn.style.border = "2px solid #f2d8e8";
+  }
+};
 
 /* 라디오버튼 선택 핸들러 함수 */
 const featureClickHandler = (feature) => {
@@ -21,10 +53,13 @@ const featureClickHandler = (feature) => {
 
   if (feature === "water") {
     waterfeatureBtn.classList.add("clicked");
+    changeButtonStyle(feature);
   } else if (feature === "sun") {
     sunfeatureBtn.classList.add("clicked");
+    changeButtonStyle(feature);
   } else if (feature === "pill") {
     pillfeatureBtn.classList.add("clicked");
+    changeButtonStyle(feature);
   }
   // 매개변수로 받은 특징 clicked css 활성화
 
@@ -46,6 +81,19 @@ const modalSubmitHandler = async (e) => {
   // 작심 input 유효성 검사 (빈칸 제출)
   if (jaksimInputValue === "") {
     alert("작심 내용을 입력해주세요.");
+    return;
+  }
+
+  // 자주 쓰는 작심에도 추가하는 경우
+  // 자주 쓰는 작심에 동일한 문자열이 있는지 검사
+  const frequentList = await getFrequentJaksim();
+
+  const compareList = frequentList.filter(
+    (item) => item.jaksim === jaksimInputValue
+  );
+
+  if (compareList.length !== 0) {
+    alert("이미 등록된 자주 쓰는 작심입니다.");
     return;
   }
 
