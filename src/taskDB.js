@@ -21,16 +21,19 @@ addbtn.addEventListener('click', ()=> {
     })
     .then(()=> {
         modalcloser.style.display = 'none';
+        taskrender()
     })
 })
 
 // task db 받아오기
 function getDB(){
+    let dbArr = [];
     db.collection('task').get().then((db)=>{
         db.forEach((taskDB)=>{
-          console.log(taskDB.data())
+        dbArr.push(taskDB.data());
         })
       })
+      return dbArr;
 }
 
 

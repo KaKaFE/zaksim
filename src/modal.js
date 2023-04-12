@@ -19,6 +19,8 @@ modalClose.addEventListener('click', ()=> {
     modalContainer.style.display = 'none';
 });
 
+
+
 // modal 배경 눌렀을때 닫기기능 버그 존재 수정필요
 // modalContainer.addEventListener('click' , (e) =>{
 //     e.preventDefault()

@@ -15,7 +15,7 @@
         <div class="modal">
             <div class="closebtn">x</div>
             <h2>작심 추가</h2>
-            <textarea name="add" id="modaltxt" cols="20" rows="1" placeholder="오늘의 작심은..."></textarea>
+            <textarea name="add" id="modaltxt" cols="20" rows="1" maxlength="8" placeholder="오늘의 작심은..."></textarea>
             <div class="statecontainer">
                 <input type="radio" name="state" id="sunny">
                 <label for="sunny">햇빛보기☀️</label>
@@ -37,12 +37,23 @@
     </div>
     <div class="todayTask">
         <h2>작심 Today</h2>
+        <div class="todayContainer">
+            <ul>
+                <!-- work render.js -->
+            </ul>
+        </div>
     </div>
     <div class="oftenTask">
         <h2>자주쓰는 작심's</h2>
+        <div class="oTaskContainer">
+            <ul>
+                <!-- work render.js -->
+            </ul>
+        </div>
     </div>
     <div class="wiseTalk">
         <h2>오늘의 명언</h2>
+        <div class="wiseTalkTxt"></div>
     </div>
     <div class="todayState">
         <div class="todayMood">
@@ -68,11 +79,13 @@
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
     <script src="./src/apikey.js"></script>
-    <script type="module">
+    <script>
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    <script defer src="./src/modal.js"></script>
-    <script defer src="./src/taskDB.js"></script>
+    <script src="./src/modal.js"></script>
+    <script src="./src/taskDB.js"></script>
+    <script src="./src/render.js"></script>
+    <script src="./src/wiseTalk.js"></script>
 </body>
 </html>

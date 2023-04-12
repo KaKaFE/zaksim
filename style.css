@@ -9,7 +9,7 @@ body {
     font-family: 'Daheng';
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 100px repeat(9, 55px) auto; 
+    grid-template-rows: auto; 
     gap: 10px;
     min-height: 100vh;
 }
@@ -67,6 +67,24 @@ h1{
 }
 .addTaskbtnClick{
     background-color: #43f3ca;
+}
+
+.task{
+    font-size: 20px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+    background-color: #9fc0f6c7;
+    border-radius: 20px;
+    
+}
+.task::after{
+    content: "x";
+    font-size: 20px;
+    float: right;
+    font-family: auto;
+    cursor: pointer;
+
 }
 
 /* modal css */
@@ -160,6 +178,26 @@ h1{
     padding: 10px;
     border-radius: 18px 18px 0 0;
     text-align: center;
+}
+
+.oTaskContainer > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.oTask{
+    margin: 10px;
+    width: 20%;
+    text-align: center;
+    background: aqua;
+    padding: 10px;
+    border-radius: 20px;
+}
+.oTask::after{
+    content: "x";
+    font-size: 20px;
+    float: right;
+    font-family: auto;
+    cursor: pointer;
 }
 /* 오늘의 명언 css */
 .wiseTalk{
