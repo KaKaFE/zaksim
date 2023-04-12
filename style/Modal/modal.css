@@ -179,6 +179,7 @@ input[id="frequent_add_check"]:checked + label {
 .today_modal_submit_btn > button:hover {
   background-color: #2fb999;
   color: white;
+  cursor: pointer;
 }
 
 .backdrop {
