@@ -81,7 +81,7 @@ const growPlant = () => {
     div.style.top = "80px";
   }
 
-  if (total === 300) {
+  if (total >= 300) {
     resetImgTag();
     makeImgTag(6);
     div.style.top = "70px";
